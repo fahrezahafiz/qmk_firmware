@@ -101,12 +101,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   MED,      NAV,      MOU,       SYM,      NUM,      FUN
     ),
 
-    [_NAV] = LAYOUT(
+    [_MEDIA] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  
               KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,     KC_NO,    KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,    
     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,  KC_NO,
                                   KC_NO,    KC_NO,    KC_NO,     KC_MPLY,  KC_MSTP,  KC_MUTE
+    ),
+
+    [_NAV] = LAYOUT(
+ //╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷
+              KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     KC_PGUP,  KC_HOME,  KC_UP,    KC_DOWN,  KC_UNDO,  
+              KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  KC_NO,     KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_RIGHT, KC_NO,    
+    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,     CW_TOGG,  KC_CUT,   KC_COPY,  KC_PSTE,  KC_INS,   KC_NO,
+                                  KC_NO,    KC_NO,    KC_NO,     KC_ENT,   KC_BSPC,  KC_DEL
     ),
 
 /*
