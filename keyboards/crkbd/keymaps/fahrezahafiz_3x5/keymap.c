@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-----------+------------+------------+------------+------------|                           |------------+-------------+------------+------------+---------------|
          KC_LGUI,     KC_LALT,     KC_LCTL,     KC_LSFT,       KC_NO,                                 KC_PGDN,      KC_LEFT,     KC_DOWN,     KC_RGHT,          KC_NO,
   //|-----------+------------+------------+------------+------------|                           |------------+-------------+------------+------------+---------------|
-           KC_NO,       KC_NO,       KC_NO,       KC_NO,       KC_NO,                                 KC_CAPS,       KC_CUT,     KC_COPY,     KC_PSTE,         KC_INS,
+           KC_NO,       KC_NO,       KC_NO,       KC_NO,       KC_NO,                                 CW_TOGG,       KC_CUT,     KC_COPY,     KC_PSTE,         KC_INS,
   //|-----------+------------+------------+------------+------------+------------|  |-----------+------------+-------------+------------+------------+---------------|
                                                   KC_NO,       KC_NO,       KC_NO,        KC_ENT,     KC_BSPC,       KC_DEL
                                         //`--------------------------------------'  `--------------------------------------'
@@ -105,3 +105,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   )
 };
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+        case KC_MINS:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+}
